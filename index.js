@@ -1,19 +1,14 @@
 const inquirer = require('inquirer');
-const fs = require('fs/promise')
-const generateHTML = (answers) => 
-// Place html code in between the backticks
-`` 
+const fs = require('fs/promise');
+let team = [];
 
-const questions = [
-    {
-        type: "input",
-        name: "",
-        message: ""
-    },
 
-    {
-        type: "input",
-        name: "",
-        message: ""
-    },
-];
+// Function to initialize Main Menu Prompt
+
+// Fuction for Manager Info Prompt
+
+// Function for Engineer Info Prompt
+
+// Function for Intern Info Prompt
+
+// Function for adding new employees set as a const variable
