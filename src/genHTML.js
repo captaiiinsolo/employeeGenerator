@@ -1,5 +1,5 @@
 // HTML page layout
-const renderHTML = (myTeam) => {
+const genHTML = (response) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -22,7 +22,7 @@ const renderHTML = (myTeam) => {
     
         <section>
             <div class="columns is-multiline is-centered m-2 p-4">
-            ${myTeam}
+                ${response}
             </div>
         </section>
         
@@ -31,63 +31,63 @@ const renderHTML = (myTeam) => {
 }
 
 // generate manager card
-const genManager = (managerInfo) => {
+const genManager = (response) => {
     return `
     <div class="column is-one-third">
         <div class="hero is-info is-small has-text-centered">
             <div class="hero-body">
-                <p class="title is-4">Kyrie Santos</p>
+                <p class="title is-4">${response.managerName}</p>
                 <p class="subtitle is-4">Manager</p>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span></span> </p>
-                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
-                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${response.managerID}</span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${response.managerEmail}</span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${response.managerOffice}</span> </p>
             </div>
         </div>
     </div>`
 }
 
 // generate engineer card
-const genEngineer = (engineerInfo) => {
+const genEngineer = (response) => {
     return `
     <div class="column is-one-third">
     <div class="hero is-info is-small has-text-centered">
         <div class="hero-body">
-            <p class="title is-4">Solomon Santos</p>
+            <p class="title is-4">${response.engineerName}</p>
             <p class="subtitle is-4">Engineer</p>
         </div>
     </div>
 
     <div class="card">
         <div class="card-content">
-            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>002</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${response.engineerID}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${response.engineerEmail}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${response.engineerGit}</span> </p>
         </div>
     </div>
 </div>`
 }
 
 // generate intern card
-const genIntern = (internInfo) => {
+const genIntern = (response) => {
     return `
     <div class="column is-one-third">
     <div class="hero is-info is-small has-text-centered">
         <div class="hero-body">
-            <p class="title is-4">Sabrina Brown</p>
+            <p class="title is-4">${response.internName}</p>
             <p class="subtitle is-4">Intern</p>
         </div>
     </div>
 
     <div class="card">
         <div class="card-content">
-            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>003</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${response.internID}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span>${response.internEmail}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span>${response.internEDU}</span> </p>
         </div>
     </div>
 </div>`

@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
-const fs = require('fs/promise');
+const fs = require('fs/promises');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const genHTML = require('./src/renderHTML');
+const genHTML = require('./src/genHTML');
 let myTeam = [];
 
 function writeFile(src, response) {
@@ -16,7 +16,7 @@ function writeFile(src, response) {
 // Function to initialize Main Menu Prompt
 const genNewEmployee = () => {
     inquirer
-        .createPromptModule([
+        .prompt([
             {
                 type: 'list',
                 message: 'What type of employee would you like to add?',
@@ -55,6 +55,12 @@ const genNewManager = () => {
                 message: 'What is the name of the new Manager?',
                 name: 'managerName'
             },
+
+            {
+                type: 'input',
+                message: 'Enter the ID # for the new Manager',
+                name: 'managerID'
+            },
             
             {
                 type: 'input',
@@ -70,7 +76,7 @@ const genNewManager = () => {
 
         ])
         .then((response) => {
-            const manager = new Manager(response.managerName, response.managerEmail, response.managerOffice)
+            const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.managerOffice)
             myTeam.push(manager)
 
             genNewEmployee();
@@ -82,9 +88,73 @@ const genNewEngineer = () => {
     inquirer
         .prompt([
             {
-                type: 'input'
+                type: 'input',
+                message: "What is the name of the new Engineer?",
+                name: 'engineerName'
+            },
+
+            {
+                type: 'input',
+                message: 'Enter the ID # for the new Engineer',
+                name: 'engineerID'
+            },
+
+            {
+                type: 'input',
+                message: 'What is the email address of the new engineer?',
+                name: 'engineerEmail'
+            },
+
+            {
+                type: 'input',
+                message: 'What is their GitHub profile name?',
+                name: 'engineerGit'
             }
         ])
+        .then((response) => {
+            const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.engineerGit)
+            myTeam.push(engineer)
+
+            genNewEmployee();
+        })
 }
 // Function for Intern Info Prompt
+
+const genNewIntern = () => {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What is the name of the new Intern?',
+                name: 'internName'
+            },
+
+            {
+                type: 'input',
+                message: 'Enter the ID # for the new Intern.',
+                name: 'internID'
+            },
+
+            {
+                type: 'input',
+                message: 'What is the email address of the new intern?',
+                name: 'internEmail'
+            },
+
+            {
+                type: 'input',
+                message: 'What College or University does the intern attend?',
+                name: 'internEDU'
+            }
+
+        ])
+        .then((response) => {
+            const intern = new Intern(response.internName, response.internID, response.internEmail, response.internEDU)
+            myTeam.push(intern)
+
+            genNewEmployee();
+        })
+}
+
+genNewEmployee();
 
