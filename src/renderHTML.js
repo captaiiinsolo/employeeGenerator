@@ -1,3 +1,4 @@
+// HTML page layout
 const renderHTML = (myTeam) => {
     return `
     <!DOCTYPE html>
@@ -21,6 +22,7 @@ const renderHTML = (myTeam) => {
     
         <section>
             <div class="columns is-multiline is-centered m-2 p-4">
+            ${myTeam}
             </div>
         </section>
         
@@ -28,6 +30,7 @@ const renderHTML = (myTeam) => {
     </html>`
 }
 
+// generate manager card
 const genManager = (managerInfo) => {
     return `
     <div class="column is-one-third">
@@ -40,14 +43,15 @@ const genManager = (managerInfo) => {
 
         <div class="card">
             <div class="card-content">
-                <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>001</span> </p>
-                <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span></span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
+                <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
             </div>
         </div>
     </div>`
 }
 
-
+// generate engineer card
 const genEngineer = (engineerInfo) => {
     return `
     <div class="column is-one-third">
@@ -61,13 +65,14 @@ const genEngineer = (engineerInfo) => {
     <div class="card">
         <div class="card-content">
             <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>002</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span></span> </p>
         </div>
     </div>
 </div>`
 }
 
-
+// generate intern card
 const genIntern = (internInfo) => {
     return `
     <div class="column is-one-third">
@@ -81,6 +86,7 @@ const genIntern = (internInfo) => {
     <div class="card">
         <div class="card-content">
             <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>003</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
             <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span></span> </p>
         </div>
     </div>
