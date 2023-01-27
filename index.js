@@ -40,6 +40,7 @@ const genNewEmployee = () => {
 
                 case 'None':
                     let myTeamData = genHTML(myTeam)
+                    console.log('Your Team is being generated...');
                     writeFile('./dist/myTeam.html', myTeamData);
                       
             }

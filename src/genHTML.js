@@ -15,7 +15,7 @@ const genManager = (responseManager) => {
         <div class="card-content">
             <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseManager.id}</span> </p>
             <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span><a href="mailto:${responseManager.email}">${responseManager.email}</a></span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-phone m-2 p-2"></i> <span>${responseManager.office}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-phone m-2 p-2"></i> <span><a href="tel:${responseManager.office}">${responseManager.office}</a></span> </p>
         </div>
     </div>
 </div>
