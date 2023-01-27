@@ -6,7 +6,7 @@ const Intern = require('./lib/Intern');
 const genHTML = require('./src/genHTML');
 let myTeam = [];
 
-function writeFile(src, response) {
+function writeFile(src, myTeamData) {
     fs.writeFile('./src/myTeam.html', myTeamData, (err) => {
         err ? console.log(err) : console.log('New employee has been created!')
     });
@@ -75,8 +75,8 @@ const genNewManager = () => {
             }
 
         ])
-        .then((response) => {
-            const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.managerOffice)
+        .then((responseManager) => {
+            const manager = new Manager(responseManager.managerName, responseManager.managerID, responseManager.managerEmail, responseManager.managerOffice)
             myTeam.push(manager)
 
             genNewEmployee();
@@ -111,8 +111,8 @@ const genNewEngineer = () => {
                 name: 'engineerGit'
             }
         ])
-        .then((response) => {
-            const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.engineerGit)
+        .then((responseEngineer) => {
+            const engineer = new Engineer(responseEngineer.engineerName, responseEngineer.engineerID, responseEngineer.engineerEmail, responseEngineer.engineerGit)
             myTeam.push(engineer)
 
             genNewEmployee();
@@ -148,8 +148,8 @@ const genNewIntern = () => {
             }
 
         ])
-        .then((response) => {
-            const intern = new Intern(response.internName, response.internID, response.internEmail, response.internEDU)
+        .then((responseIntern) => {
+            const intern = new Intern(responseIntern.internName, responseIntern.internID, responseIntern.internEmail, responseIntern.internEDU)
             myTeam.push(intern)
 
             genNewEmployee();
