@@ -30,7 +30,8 @@ const genHTML = (response) => {
         </section>
         
     </body>
-    </html>`
+    </html>
+    `
     }
 
 
@@ -125,35 +126,35 @@ html.push(
 
 };
 
-module.exports = () => {
-    return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-    <script src="https://kit.fontawesome.com/6fdd9419ec.js" crossorigin="anonymous"></script>
-    <title>My Team</title>
-</head>
-<body>
-    <section>
-        <header class="hero is-danger has-text-centered">
-            <div class="hero-body">
-                <p class="title">My Team</p>
-            </div>
-        </header>
-    </section>
+// module.exports = () => {
+//     return `
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+//     <script src="https://kit.fontawesome.com/6fdd9419ec.js" crossorigin="anonymous"></script>
+//     <title>My Team</title>
+// </head>
+// <body>
+//     <section>
+//         <header class="hero is-danger has-text-centered">
+//             <div class="hero-body">
+//                 <p class="title">My Team</p>
+//             </div>
+//         </header>
+//     </section>
 
-    <section>
-        <div class="columns is-multiline is-centered m-2 p-4">
-            ${genHTML}
-        </div>
-    </section>
+//     <section>
+//         <div class="columns is-multiline is-centered m-2 p-4">
+//             ${genHTML(myTeam)}
+//         </div>
+//     </section>
     
-</body>
-</html>
-`;
+// </body>
+// </html>
+// `;
 
-};
+// };
