@@ -37,7 +37,7 @@ const genEngineer = (responseEngineer) => {
         <div class="card-content">
             <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseEngineer.id}</span> </p>
             <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span><a href="mailto:${responseEngineer.email}">${responseEngineer.email}</a></span> </p>
-            <p class="subtitle is-5"><i class="fa-brands fa-github m-2 p-2"></i> <span><a href="https://github.com/${responseEngineer.git}">${responseEngineer.git}</a></span> </p>
+            <p class="subtitle is-5"><i class="fa-brands fa-github m-2 p-2"></i> <span><a href="https://github.com/${responseEngineer.git}" target="_blank">${responseEngineer.git}</a></span> </p>
         </div>
     </div>
 </div>
