@@ -1,56 +1,21 @@
-const Employee = require("../lib/Employee");
-
 // HTML page layout
 const genHTML = (response) => {
-    const genTeam = (myTeam) => {
-        return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-        <script src="https://kit.fontawesome.com/6fdd9419ec.js" crossorigin="anonymous"></script>
-        <title>My Team</title>
-    </head>
-    <body>
-        <section>
-            <header class="hero is-danger has-text-centered">
-                <div class="hero-body">
-                    <p class="title">My Team</p>
-                </div>
-            </header>
-        </section>
-    
-        <section>
-            <div class="columns is-multiline is-centered m-2 p-4">
-                ${myTeam}
-            </div>
-        </section>
-        
-    </body>
-    </html>
-    `
-    }
-
-
 // generate manager card
 const genManager = (responseManager) => {
     return `
     <div class="column is-one-third">
         <div class="hero is-info is-small has-text-centered">
             <div class="hero-body">
-                <p class="title is-4">${responseManager.managerName}</p>
+                <p class="title is-4">${responseManager.name}</p>
                 <p class="subtitle is-4">Manager</p>
             </div>
         </div>
 
     <div class="card">
         <div class="card-content">
-            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseManager.managerID}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${responseManager.managerEmail}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${responseManager.managerOffice}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseManager.id}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span><a href="mailto:${responseManager.email}">${responseManager.email}</a></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-phone m-2 p-2"></i> <span>${responseManager.office}</span> </p>
         </div>
     </div>
 </div>
@@ -63,16 +28,16 @@ const genEngineer = (responseEngineer) => {
     <div class="column is-one-third">
     <div class="hero is-info is-small has-text-centered">
         <div class="hero-body">
-            <p class="title is-4">${responseEngineer.engineerName}</p>
+            <p class="title is-4">${responseEngineer.name}</p>
             <p class="subtitle is-4">Engineer</p>
         </div>
     </div>
 
     <div class="card">
         <div class="card-content">
-            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseEngineer.engineerID}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${responseEngineer.engineerEmail}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa- m-2 p-2"></i> <span>${responseEngineer.engineerGit}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseEngineer.id}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span><a href="mailto:${responseEngineer.email}">${responseEngineer.email}</a></span> </p>
+            <p class="subtitle is-5"><i class="fa-brands fa-github m-2 p-2"></i> <span>${responseEngineer.git}</span> </p>
         </div>
     </div>
 </div>
@@ -85,16 +50,16 @@ const genIntern = (responseIntern) => {
     <div class="column is-one-third">
     <div class="hero is-info is-small has-text-centered">
         <div class="hero-body">
-            <p class="title is-4">${responseIntern.internName}</p>
+            <p class="title is-4">${responseIntern.name}</p>
             <p class="subtitle is-4">Intern</p>
         </div>
     </div>
 
     <div class="card">
         <div class="card-content">
-            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseIntern.internID}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span>${responseIntern.internEmail}</span> </p>
-            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span>${responseIntern.internEDU}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-id-badge m-2 p-2"></i> <span>${responseIntern.id}</span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-envelope m-2 p-2"></i> <span><a href="mailto:${responseIntern.email}">${responseIntern.email}</a></span> </p>
+            <p class="subtitle is-5"><i class="fa-solid fa-school m-2 p-2"></i> <span>${responseIntern.school}</span> </p>
         </div>
     </div>
 </div>
@@ -126,35 +91,37 @@ html.push(
 
 };
 
-// module.exports = () => {
-//     return `
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-//     <script src="https://kit.fontawesome.com/6fdd9419ec.js" crossorigin="anonymous"></script>
-//     <title>My Team</title>
-// </head>
-// <body>
-//     <section>
-//         <header class="hero is-danger has-text-centered">
-//             <div class="hero-body">
-//                 <p class="title">My Team</p>
-//             </div>
-//         </header>
-//     </section>
 
-//     <section>
-//         <div class="columns is-multiline is-centered m-2 p-4">
-//             ${genHTML(myTeam)}
-//         </div>
-//     </section>
+
+module.exports = (response) => {
+    return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <script src="https://kit.fontawesome.com/6fdd9419ec.js" crossorigin="anonymous"></script>
+    <title>My Team</title>
+</head>
+<body>
+    <section>
+        <header class="hero is-danger has-text-centered">
+            <div class="hero-body">
+                <p class="title">My Team</p>
+            </div>
+        </header>
+    </section>
+
+    <section>
+        <div class="columns is-multiline is-centered m-2 p-4">
+            ${genHTML(response)}
+        </div>
+    </section>
     
-// </body>
-// </html>
-// `;
+</body>
+</html>
+`;
 
-// };
+};

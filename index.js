@@ -7,7 +7,7 @@ const genHTML = require('./src/genHTML');
 let myTeam = [];
 
 function writeFile(src, myTeamData) {
-    fs.writeFile('./src/myTeam.html', myTeamData, (err) => {
+    fs.writeFile('./dist/myTeam.html', myTeamData, (err) => {
         err ? console.log(err) : console.log('New employee has been created!')
     });
 }
@@ -39,8 +39,8 @@ const genNewEmployee = () => {
                     break;
 
                 case 'None':
-                    let myTeamData = genHTML(response)
-                    writeFile('./src/myTeam.html', myTeamData);
+                    let myTeamData = genHTML(myTeam)
+                    writeFile('./dist/myTeam.html', myTeamData);
                       
             }
         })
@@ -70,7 +70,7 @@ const genNewManager = () => {
 
             {
                 type: 'input',
-                message: 'What is their new office number?',
+                message: 'What is their new office phone number?',
                 name: 'managerOffice'
             }
 
@@ -144,12 +144,12 @@ const genNewIntern = () => {
             {
                 type: 'input',
                 message: 'What College or University does the intern attend?',
-                name: 'internEDU'
+                name: 'internSchool'
             }
 
         ])
         .then((responseIntern) => {
-            const intern = new Intern(responseIntern.internName, responseIntern.internID, responseIntern.internEmail, responseIntern.internEDU)
+            const intern = new Intern(responseIntern.internName, responseIntern.internID, responseIntern.internEmail, responseIntern.internSchool)
             myTeam.push(intern)
 
             genNewEmployee();
